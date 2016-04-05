@@ -1,5 +1,12 @@
+pub trait Cipher {
+    fn encrypt(&self, plaintext: String) -> Result<String, String>;
+    fn decrypt(&self, encrypted_text: String) -> Result<String, String>;
+    fn bash(&self, encrypted_text: String) -> Result<String, String>;
+}
+
 pub mod vigenere {
     use std::collections::HashMap;
+    use super::Cipher;
 
     pub struct VigenereCipher {
         pub key: String,
@@ -45,7 +52,9 @@ pub mod vigenere {
             }
         }
 
-        pub fn encrypt(&self, plaintext: String) -> Result<String, String> {
+    }
+    impl Cipher for VigenereCipher {
+        fn encrypt(&self, plaintext: String) -> Result<String, String> {
             let mut char_index = 0;
             let mut encrypted_str = String::new();
             for character in plaintext.chars() {
@@ -56,6 +65,14 @@ pub mod vigenere {
                 char_index += 1;
             }
             return Ok(encrypted_str);
+        }
+
+        fn decrypt(&self, encrypted_text: String) -> Result<String, String> {
+            unimplemented!();
+        }
+
+        fn bash(&self, encrypted_text: String) -> Result<String, String> {
+            unimplemented!();
         }
     }
 }
