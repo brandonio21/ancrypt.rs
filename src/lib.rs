@@ -78,6 +78,7 @@ pub mod vigenere {
 #[cfg(test)]
 mod tests {
     use super::vigenere;
+    use super::Cipher;
 
     #[test]
     fn it_works() {
