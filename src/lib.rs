@@ -32,7 +32,6 @@ pub mod vigenere {
                 let mut index_hashmap: HashMap<char,char> = HashMap::new();
                 let a_index = (character as u8) - ('a' as u8);
                 for j in 0..26 {
-                    println!("Doing {}",(j + ('a' as u8)) as char);
                     index_hashmap.insert((j + ('a' as u8)) as char, 
                                          (((a_index + j) %26) + ('a' as u8)) as char);
                 }
